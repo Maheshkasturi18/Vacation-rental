@@ -1,6 +1,42 @@
-import React from "react";
+import React,{useState} from "react";
 
 export default function Header() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const resetFormData = () => {
+    setFormData({
+      name: "",
+      email: "",
+      password: "",
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    window.alert("Registered successfully!");
+    //  reset form
+    resetFormData();
+  };
+
+  const Submit = (e) => {
+    e.preventDefault();
+    window.alert("LogIn successfully!");
+    //  reset form
+    resetFormData();
+  };
+
   return (
     <header>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -9,7 +45,7 @@ export default function Header() {
             className=" navbar-collapse d-flex justify-content-between"
             id="navbarTogglerDemo01"
           >
-            <a className="navbar-brand poppins-medium fs-4" href="#">
+            <a href="/" className="navbar-brand poppins-medium fs-4" >
               <span className="text-92">S</span>he
               <span className="text-92">S</span>hare
             </a>
@@ -22,7 +58,11 @@ export default function Header() {
               >
                 Register
               </button>
-              <button className="btn p-1 py-md-1 px-md-3 bttn" type="button">
+              <button
+                className="btn p-1 py-md-1 px-md-3 bttn"
+                data-bs-target="#exampleModalToggle2"
+                data-bs-toggle="modal"
+              >
                 LogIn
               </button>
 
@@ -46,24 +86,28 @@ export default function Header() {
                       ></button>
                     </div>
                     <div className="modal-body ">
-                      <form action="" className=" px-1">
+                      <form action="" className=" px-1" onSubmit={handleSubmit}>
                         <div className="mb-3 d-grid">
-                          <label htmlFor="Username">Username</label>
+                          <label htmlFor="name">Username</label>
                           <input
                             type="text"
-                            name="Username"
-                            id="Username"
+                            name="name"
+                            id="name"
                             className="p-1"
+                            value={formData.name}
+                            onChange={handleChange}
                             required
                           />
                         </div>
                         <div className="mb-3 d-grid">
-                          <label htmlFor="Email">Email</label>
+                          <label htmlFor="email">Email</label>
                           <input
                             type="email"
-                            name="Email"
-                            id="Email"
+                            name="email"
+                            id="email"
                             className="p-1"
+                            value={formData.email}
+                            onChange={handleChange}
                             required
                           />
                         </div>
@@ -74,6 +118,8 @@ export default function Header() {
                             name="password"
                             className="p-1"
                             id="password"
+                            value={formData.password}
+                            onChange={handleChange}
                             required
                           />
                         </div>
@@ -121,15 +167,17 @@ export default function Header() {
                       ></button>
                     </div>
                     <div className="modal-body">
-                      <form action="" className=" px-1">
+                      <form action="" className=" px-1" onSubmit={Submit}>
                         <div className="mb-3 d-grid">
-                          <label htmlFor="Email">Email</label>
+                          <label htmlFor="email">Email</label>
                           <input
                             type="email"
-                            name="Email"
-                            id="Email"
+                            name="email"
+                            id="email"
                             className="p-1"
                             required
+                            value={formData.email}
+                            onChange={handleChange}
                           />
                         </div>
                         <div className="mb-4 d-grid">
@@ -140,6 +188,8 @@ export default function Header() {
                             className="p-1"
                             id="password"
                             required
+                            value={formData.password}
+                            onChange={handleChange}
                           />
                           <span className="text-end text-secondary-emphasis fs-13">
                             forgot password?

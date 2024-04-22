@@ -9,16 +9,28 @@
   background-color: #ffdfe7;
 }
 
-.text-fab {
-  color: #ff8fab;
-}
-
 .text-92 {
   color: #fb6f92;
 }
 
+.fs-18 {
+  font-size: 16px;
+}
+
+.fs-15 {
+  font-size: 15px;
+}
+
 .fs-13 {
   font-size: 13px;
+}
+
+.w-90 {
+  width: 90% !important;
+}
+
+.w-100 {
+  width: 100% !important;
 }
 
 .poppins-light {
@@ -39,14 +51,6 @@
   font-style: normal;
 }
 
-.poppins-semibold {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-style: normal;
-}
-
-/*  */
-
 .bttn {
   border: 1px solid #fb6f92 !important;
 }
@@ -56,25 +60,15 @@
   color: antiquewhite !important;
 }
 
-.modal-content {
-  width: 70%;
-}
-
 .btn-close {
   font-size: 10px;
 }
 
-@media screen and (max-width: 450px) {
-  .fs-13 {
-    font-size: 10px;
-  }
-  .modal-content {
-    width: 95%;
-  }
-  .booking .calendar input,.booking .calendar label ,.booking .calendar #createprofile {
-   font-size: 13px;
-  }
+.modal-content {
+  width: 70%;
 }
+
+/* common css end */
 
 /* booking  */
 
@@ -85,14 +79,32 @@
   cursor: pointer;
 }
 
+/* responsive css */
+
+@media screen and (max-width: 450px) {
+  .fs-13 {
+    font-size: 10px;
+  }
+  .modal-content {
+    width: 95%;
+  }
+  .booking .calendar input,
+  .booking .calendar label,
+  .booking .calendar #createprofile {
+    font-size: 13px;
+  }
+}
+
 @media screen and (max-width: 800px) {
   .calendar {
     width: max-content;
   }
 
-}
+  .fs-18 {
+    font-size: 14px;
+  }
 
-/* city */
-.city{
-  overflow: scroll;
+  .fs-15 {
+    font-size: 13px;
+  }
 }
